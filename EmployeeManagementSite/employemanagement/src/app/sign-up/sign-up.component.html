@@ -1,0 +1,79 @@
+<div>
+    <div class="flex-container">
+        <div class="login-form-container">
+            <form [formGroup]="signupform">
+                <div class="p-field p-md-8 mt-2 ml-4">
+                    <label [ngClass]="{headerlbl:true}">Create a new user
+                    </label>
+                </div>
+                <p-card>
+                    <div *ngIf="this.errormsgs.length>0">
+                        <div *ngFor='let error of this.errormsgs' class="error">
+                            {{error}}
+                        </div>
+                    </div>
+                    <div class="p-field p-md-8 mt-2 ml-4">
+                        <input type="text" id="fullName" formControlName="FullName" pInputText
+                            placeholder="Enter your Name" />
+                            <div *ngIf="FullName?.invalid &&  (FullName?.dirty || FullName?.touched)" class="error">
+                                <div *ngIf="FullName?.errors?.['required']">
+                                    Full Name is required.
+                                </div>
+                                
+                            </div>
+                    </div>
+                    <div class="p-field p-md-8 mt-2 ml-4">
+                        <input type="text" id="UserName" formControlName="UserName" pInputText
+                            placeholder="Enter your email address" />
+                        <div *ngIf="UserName?.invalid &&  (UserName?.dirty || UserName?.touched)" class="error">
+                            <div *ngIf="UserName?.errors?.['required']">
+                                User Name is required.
+                            </div>
+                            <div *ngIf="UserName?.errors?.['email']">
+                                Enter valid email.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-field p-md-8  mt-2 ml-4">
+                        <p-password type="text" id="Password" formControlName="Password" placeholder="New Password" />
+                        <div *ngIf="Password?.invalid &&  (Password?.dirty || Password?.touched)" class="error">
+                            <div *ngIf="Password?.errors?.['required']">
+                                Password is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-field p-md-8  mt-2 ml-4">
+                        <p-password type="text" id="ConfirmPwd" formControlName="ConfirmPwd" placeholder="Re-enter Password" />
+                        <div *ngIf="ConfirmPwd?.invalid &&  (ConfirmPwd?.dirty || ConfirmPwd?.touched)" class="error">
+                            <div *ngIf="ConfirmPwd?.errors?.['required']">
+                                confirm the password.
+                            </div>
+                            <div *ngIf="ConfirmPwd?.errors?.['Compare']">
+                                confirm password does not match.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-field p-md-8  mt-2 ml-4">
+                        <p-dropdown   [options]="allRoles"  [(ngModel)]="selectedRole"  formControlName="role" 
+                        optionLabel="name"  placeholder="Select Role" />
+                           
+                    </div>
+                    <label class="mt-2 ml-4"> Date of birth </label>
+                    <div class="p-field p-md-8  mt-2 ml-4">
+                        <p-calendar id="date" formControlName="DateofBirth" [showIcon]="true" [(ngModel)]="DateofBirth"
+                            (onSelect)="selectDate($event)" dateFormat="dd-mm-yy" dataType="dd-mm-yy"
+                            class="form-control" placeholder="dd-mm-yyyy" [readonlyInput]="false"></p-calendar>
+                    </div>
+                    <div class="p-field p-md-8 mt-2 ml-4">
+                        <button pButton (click)="SignUp()" [disabled]="signupform.invalid" class="p-button-lg s-button">Sign Up</button>
+                    </div>
+                    <div class="p-field p-md-6 mt-2 ml-4">
+                        <a [routerLink]="'/login'" [ngClass]="{anchor:true}">Already have an account? </a>
+                    </div>
+                    <div class="p-field p-md-8 mt-2 ml-4"></div>
+                </p-card>
+                {{status}}
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.p-button {
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 40px;
+    font-size: medium;
+}
+
+.buttonGap {
+    gap: 20px;
+}
+

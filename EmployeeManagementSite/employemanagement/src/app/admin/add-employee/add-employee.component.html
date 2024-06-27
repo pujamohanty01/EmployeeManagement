@@ -1,0 +1,57 @@
+     
+     <div>
+    <div class="flex-container">
+        <div class="login-form-container">
+            <form [formGroup]="AddEmployeeform">
+                <div class="p-field p-md-8 mt-2 ml-4">
+                    <label [ngClass]="{headerlbl:true}">Add an Employee
+                    </label>
+                </div>
+                <p-card>
+                    <div *ngIf="this.errormsgs.length>0">
+                        <div *ngFor='let error of this.errormsgs' class="error">
+                            {{error}}
+                        </div>  
+                    </div>
+                    <div class="p-field p-md-8 mt-2 ml-4">
+                        <input type="text" id="name" formControlName="Name" pInputText
+                            placeholder="Enter employee name" />
+                            <div *ngIf="Name?.invalid &&  (Name?.dirty || Name?.touched)" class="error">
+                                <div *ngIf="Name?.errors?.['required']">
+                                    Name is required.
+                                </div>
+                                
+                            </div>
+                    </div>
+                    <div class="p-field p-md-8 mt-2 ml-4">
+                        <input type="text" id="Salary" formControlName="Salary" pInputText (keypress)="numberOnly($event)"
+                            placeholder="Enter employee salary" />
+                        <div *ngIf="Salary?.invalid &&  (Salary?.dirty || Salary?.touched)" class="error">
+                            <div *ngIf="Salary?.errors?.['required']">
+                                Salary is required.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-field p-md-8  mt-2 ml-4" >
+                        <p-dropdown   [options]="departments"  [(ngModel)]="selecteddepartment"  formControlName="Department" 
+                        optionLabel="name"  placeholder="Select Department         " />
+                           
+                    </div>
+                    <div class="p-field p-md-8  mt-2 ml-4">
+                        <p-dropdown   [options]="cities"  [(ngModel)]="selectedcity"   formControlName="City" 
+                        optionLabel="name"  placeholder="Select City     " />
+                           
+                    </div>
+                     <div class="p-field p-md-8 mt-2 ml-4 buttonGap" style="justify-content: center;">
+                        <button pButton (click)="addEmployee()" [disabled]="AddEmployeeform.invalid" class="p-button-lg p-button">Add</button>
+                        <button pButton (click)="clearEmployee()"  class="p-button-lg p-button">Clear</button>
+                    </div>
+                    <div class="p-field p-md-8 mt-2 ml-4"></div>
+                    {{status}}
+                </p-card>
+               
+            </form>
+        </div>
+    </div>
+</div>

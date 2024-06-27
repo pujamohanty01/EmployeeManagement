@@ -1,0 +1,47 @@
+.login-form-container {
+    height: 315.828;
+    width: 364px;
+    padding: 10px, 16px, 24px, 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 40px;
+    box-shadow: 0 2px 4px rgb(0 0 0);
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+    
+}
+.title-parent {
+    padding-right: 32px;
+    
+}
+.title {
+    font-family: sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 32px;
+    color: black;
+    width: 500px;
+}
+.parent-container {
+    padding-top: 92px;
+}
+
+input:focus {
+    border-color: #1877f2;
+    box-shadow: 0 0 0 2px #e7f3ff;
+    caret-color: #1877f2;;
+}
+.error {
+    color: red;
+    font-size: small;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.anchor {
+    font-size: small;
+}
+.p-dropdown {
+    width: 250px;
+}

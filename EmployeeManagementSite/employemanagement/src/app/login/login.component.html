@@ -1,0 +1,43 @@
+<div>
+    <div class="flex-container">
+      
+        <div class="login-form-container">
+            <form [formGroup]="loginform">
+                <p-card>
+                    <div *ngIf="this.errormsgs.length>0">
+                        <div *ngFor='let error of this.errormsgs' class="error">
+                            {{error}}
+                        </div>
+                    </div>
+                    <div class="p-field p-md-6 "> 
+                        <input type="text" id="UserName" formControlName="UserName" pInputText
+                             placeholder="Enter your email" />
+                            <div *ngIf="UserName?.invalid &&  (UserName?.dirty || UserName?.touched)" class="error"> 
+                                <div *ngIf="UserName?.errors?.['required']">
+                                    Email is required.
+                                </div>
+                                <div *ngIf="UserName?.errors?.['email']">
+                                    Enter a valid email.
+                                </div>
+                            </div>
+                    </div>
+                    <div class="p-field p-md-6 mt-2">
+                        <p-password type="text" id="Password" formControlName="Password" placeholder="Password" />
+                        <div *ngIf="Password?.invalid &&  (Password?.dirty || Password?.touched)" class="error"> 
+                            <div *ngIf="Password?.errors?.['required']">
+                                Password is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-field p-md-6 mt-2" >
+                        <button pButton  (click)="logInToUI()" [disabled]="loginform.invalid" class="p-button-lg">Log In</button>  
+                    </div>
+                    <div class="p-field p-md-6 mt-2 ml-2">
+                        <a [routerLink]="'/signup'" [ngClass]="{anchor:true}">Signup? </a>
+                    </div>
+                    <div class="p-field p-md-8 mt-2 ml-4"></div>
+                </p-card>
+            </form>
+        </div>
+    </div>
+</div>

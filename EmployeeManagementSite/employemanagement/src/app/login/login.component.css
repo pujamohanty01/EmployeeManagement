@@ -1,0 +1,8 @@
+.p-button {
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 40px;
+}
