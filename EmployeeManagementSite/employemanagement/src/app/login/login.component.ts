@@ -45,7 +45,7 @@ export class LogInComponent implements OnInit {
     };
     this.loginService.login(data).subscribe(user => {
       if (user) {
-        sessionStorage.setItem('credential', JSON.stringify(user)); 
+        localStorage.setItem('credential', JSON.stringify(user)); 
         this.router.navigate(['admin/dashboard']);
       }
       else {

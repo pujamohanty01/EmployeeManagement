@@ -11,7 +11,7 @@ export class DashboardComponent {
 
   }
   ngOnInit(): void {
-    const data = sessionStorage.getItem("credential");
+    const data = localStorage.getItem("credential");
     if(data){
       this.user= JSON.parse(data); 
     }
