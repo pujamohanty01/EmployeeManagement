@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="p-field p-md-8  mt-2 ml-4">
-                        <p-password type="text" id="Password" formControlName="Password" placeholder="New Password" />
+                        <p-password type="text" id="Password" formControlName="Password" placeholder="New Password" [inputStyle]="{'width':'250px'}"/>
                         <div *ngIf="Password?.invalid &&  (Password?.dirty || Password?.touched)" class="error">
                             <div *ngIf="Password?.errors?.['required']">
                                 Password is required.
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="p-field p-md-8  mt-2 ml-4">
-                        <p-password type="text" id="ConfirmPwd" formControlName="ConfirmPwd" placeholder="Re-enter Password" />
+                        <p-password type="text" id="ConfirmPwd" formControlName="ConfirmPwd" placeholder="Re-enter Password" [inputStyle]="{'width':'250px'}"/>
                         <div *ngIf="ConfirmPwd?.invalid &&  (ConfirmPwd?.dirty || ConfirmPwd?.touched)" class="error">
                             <div *ngIf="ConfirmPwd?.errors?.['required']">
                                 confirm the password.
@@ -58,12 +58,12 @@
                         optionLabel="name"  placeholder="Select Role" />
                            
                     </div>
-                    <label class="mt-2 ml-4"> Date of birth </label>
+                    <!-- <label class="mt-2 ml-4"> Date of birth </label>
                     <div class="p-field p-md-8  mt-2 ml-4">
                         <p-calendar id="date" formControlName="DateofBirth" [showIcon]="true" [(ngModel)]="DateofBirth"
                             (onSelect)="selectDate($event)" dateFormat="dd-mm-yy" dataType="dd-mm-yy"
                             class="form-control" placeholder="dd-mm-yyyy" [readonlyInput]="false"></p-calendar>
-                    </div>
+                    </div> -->
                     <div class="p-field p-md-8 mt-2 ml-4">
                         <button pButton (click)="SignUp()" [disabled]="signupform.invalid" class="p-button-lg s-button">Sign Up</button>
                     </div>
