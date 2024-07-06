@@ -60,7 +60,7 @@ export class AddemployeeComponent implements OnInit {
     emp.Salary = Number(this.Salary?.value);
     emp.City = this.AddEmployeeform.get('City')?.value.name;
     emp.Department = this.AddEmployeeform.get('Department')?.value.name;
-    this.AddEmployeeform.value;
+    //this.AddEmployeeform.value;
     this.employeeService.AddEmplyee(emp).subscribe((data) => {
       if (data) {
         this.status = 'Employee created successfully.';

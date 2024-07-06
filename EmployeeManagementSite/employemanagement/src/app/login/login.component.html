@@ -22,7 +22,7 @@
                             </div>
                     </div>
                     <div class="p-field p-md-6 mt-2">
-                        <p-password type="text" id="Password" formControlName="Password" placeholder="Password" />
+                        <p-password type="text" id="Password" formControlName="Password" placeholder="Password" [inputStyle]="{'width':'250px'}"/>
                         <div *ngIf="Password?.invalid &&  (Password?.dirty || Password?.touched)" class="error"> 
                             <div *ngIf="Password?.errors?.['required']">
                                 Password is required.

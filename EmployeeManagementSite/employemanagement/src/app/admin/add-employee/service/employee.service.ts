@@ -19,4 +19,10 @@ export class EmployeeService {
    AddEmplyee(employee: employee): Observable<any> {
     return this.http.post(this.url, employee);
    }
+   deleteEmployee(Id: string): Observable<any> {
+    return this.http.delete(this.url+'Delete'+'/'+ Id);
+   }
+   UpdateEmplyee(employee: employee): Observable<any> {
+    return this.http.patch(this.url+"Update", employee);
+   }
 }
